@@ -1,0 +1,130 @@
+   <div class="col-md-9" id="checkout">
+<div class="box">
+ <h1>Kontrola objednávky</h1>
+<form method="post" action="/kosik/odeslat">
+<div class="table-responsive">
+
+<br>
+<h2>Faturační údaje a informace o doručení</h2>
+<table class="table">
+ <thead>
+  <tr>
+                                                    <th>Jméno: </th><td><?= $fakturace[":jmeno"] ?></td><th>Ulice: </th><td><?= $fakturace[":ulice"] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                    <th>Příjmení: </th><td><?= $fakturace[":prijmeni"] ?></td><th>Město: </th><td><?= $fakturace[":mesto"] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                    <th>Firma: </th><td><?= $fakturace[":firma"] ?></td><th>PSČ: </th><td><?= $fakturace[":psc"] ?></td>
+                                                    </tr>
+                                                       <tr>
+                                                    <th>Telefon: </th><td><?= $fakturace[":telefon"] ?></td><th>Email: </th><td><?= $fakturace[":email"] ?></td>
+                                                    </tr>
+                                                      <tr>
+                                                    <th>Platba: </th><td><?= $platba ?></td><th>Doprava: </th><td><?= $doprava ?></td>
+                                                    </tr>
+                                                   
+                                            
+</thead>
+</table> 
+
+<br> <h2>Objednávka</h2>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2">Položka</th>
+                                                    <th>Kvantita</th>
+                                                    <th>Cena za jednotku</th>
+                                                    
+                                                    <th colspan="2">Celkem</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                             <?php foreach ($kosik as $zbozi) : ?>
+                                                    <?php
+                                                     $cena=0; 
+                                                      if($zbozi["kusu"]/$zbozi["limit"]>=1  )
+                                                      {
+                                                     $cena = $zbozi['cena2'];
+                                                      } else
+                                                      {
+                                                         $cena=$zbozi['cena'];
+                                                      }
+                                                      
+                                                      ?>
+                                             
+                                                    <tr>
+  <td> 
+    
+    <a href="zbozi/<?= str_replace(" ","-",$zbozi["url"])?>">
+      <img src="img/produkty/<?= $zbozi["obrazek"]?>" alt="<?= $zbozi["nazev"]?>" height="100px">
+    </a>
+
+  </td>
+  <td>
+    <a href="zbozi/<?= str_replace(" ","-",$zbozi["url"])?>"><?= $zbozi["nazev"]?></a>
+  </td>
+  <td>
+   <?= $zbozi["kusu"]?>
+  </td>
+ <td>
+    <?= number_format($cena*(1-$zbozi['sleva']), 2, ',', ' ') ?> Kč
+  </td>
+
+  <td>
+   <?= number_format($cena*$zbozi["kusu"]*(1-$zbozi['sleva']), 2, ',', ' ')?> Kč
+  </td>
+    
+</tr>
+                                               <?php $celkemStalo+= $cena*$zbozi["kusu"]*(1-$zbozi['sleva']);  ?>        
+                                             
+                                            <?php endforeach ?>
+                                            </tbody>
+                                            <tfoot>
+                                             <tr>
+                                                    <th colspan="5">Doprava</th>
+                                                    <th><?= number_format($cenaDopravy, 2, ',', ' '); ?> Kč</th>
+                                                </tr>
+                                                  <tr>
+                                                    <th colspan="5">Platba</th>
+                                                    <th><?= number_format($cenaPlatby, 2, ',', ' '); ?> Kč</th>      
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="5">Celkem</th>
+                                                    <th><?= number_format($celkemStalo+$cenaPlatby+$cenaDopravy, 2, ',', ' '); ?> Kč</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                            <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>Vaše poznámky k objednávce</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><textarea rows="8" cols="50" class="form-control" name="poznamka" placeholder="Text vaší poznámky"></textarea></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                                              <table class="table no-margin">
+            
+                        <tr>
+                         <td>    <input type="checkbox" name="souhlasim" class="form-control"></td>    <td>Souhlasím s obchodními podmínkami eshopu (<a href="data/VOP_Chejn.pdf" target="_blank">Obchodní podmínky</a>)</td> 
+                        </tr>
+                     
+                    </table>
+        
+                    
+                                </div>
+                                <!-- /.table-responsive -->
+
+                                <div class="box-footer">
+                                   <div class="pull-center">
+                                        <button type="submit" class="btn btn-template-main">Závazně objednat <i class="fa fa-chevron-right"></i>
+                                        </button> 
+                                </div>
+
+                            </form>
+
+                        </div>

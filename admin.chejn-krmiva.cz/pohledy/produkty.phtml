@@ -1,0 +1,106 @@
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Přehled produktů
+            <small>Verze 1.0 - Ořezaná</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Hlavní Strana</a></li>
+            <li class="active">Přehled</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <!-- Info boxes -->
+          <div class="row">
+            <div class="col-md-4 col-sm-8 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-blue"><i class="fa fa-facebook"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">FB LIKE</span>
+                  <span class="info-box-number">41,410</span>
+                </div><!-- /.info-box-content -->
+              </div><!-- /.info-box -->
+            </div><!-- /.col -->
+
+            <!-- fix for small devices only -->
+            <div class="clearfix visible-sm-block"></div>
+
+            <div class="col-md-4 col-sm-8 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Prodaných produktů</span>
+                  <span class="info-box-number"><?= $prodano[0] ?></span>
+                </div><!-- /.info-box-content -->
+              </div><!-- /.info-box -->
+            </div><!-- /.col -->
+            <div class="col-md-4 col-sm-8 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>  
+                <div class="info-box-content">
+                  <span class="info-box-text">Počet uživatelů</span>
+                  <span class="info-box-number">2,000</span>
+                </div><!-- /.info-box-content -->
+              </div><!-- /.info-box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+          <!-- Main row -->
+          <div class="row">
+            <!-- Left col -->
+            <div class="col-md-12">
+              <!-- MAP & BOX PANE -->
+
+              <!-- TABLE: LATEST ORDERS -->
+              <div class="box box-info">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Přehled produktů</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <div class="table-responsive">
+                    <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>Obrázek</th>
+                          <th>Název</th>
+                          <th>Skladem</th>
+                          <th>Cena</th>
+                          <th>Novinka</th>
+                          <th>Sleva</th>
+                          <th>Provést</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                                      <?php foreach ($produkty as $produkt) : ?>
+                      <tr>
+                          <td class="vert-align"><img src="http://chejn-krmiva.cz/img/produkty/<?= $produkt["obrazek"]?>" height="80px"></td>
+                          <td class="vert-align"> <?= $produkt["nazev"]?></td>
+                          <td class="vert-align"> <?= $produkt["skladem"]?> ks</td>
+                          <td class="vert-align"><?= number_format($produkt["cena"], 2, ',', ' ')?> Kč</td>
+                          <td class="vert-align"><?php if($produkt["new"]){echo"Ano";}else{echo"Ne";}?></td>
+                          <td class="vert-align"><?= $produkt["sleva"]*100?> %</td>  
+                          <td class="vert-align"><a href="EditProduktu/<?= $produkt["id"]?>" class="btn btn-sm btn-info btn-flat"><i class="fa fa-pencil"></i></a></td>  
+                        </tr>
+                         <?php endforeach ?>                
+                        
+                  
+                      </tbody>
+                    </table>
+                  </div><!-- /.table-responsive -->
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix">
+                    
+                </div><!-- /.box-footer -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->

@@ -1,0 +1,146 @@
+  <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Detail objednávky
+            <small>Verze 1.0 - Ořezaná</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="index"><i class="fa fa-dashboard"></i> Hlavní Strana</a></li>
+            <li class="active">Detail objednávky</li>
+          </ol>
+        </section>
+      
+                                     <?php //print_r($udaje);?>
+                                    
+                 <section class="content">
+ <div class="box box-info">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Objednávka č.: <?= $udaje["id_fakturace"] ?></h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                
+                  <div class="table-responsive">
+                    <table class="table no-margin">
+                    <table class="table">
+                
+                <tr>
+               <td><span class="text-center">  Stav: </td><td><?= htmlspecialchars_decode($stav)?> </span></td>
+                </tr> <tr>
+              <td> <span class="text-right">Datum: </td><td> <?= $udaje["datum"] ?></span></td>
+               
+                </tr></table>
+                <h2>Fakturační údaje</h2>
+          <table class="table">
+ <thead>
+  <tr>
+                                                    <th>Jméno: </th><td><?= $udaje["jmeno"] ?></td><th>Ulice: </th><td><?= $udaje["ulice"] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                    <th>Příjmení: </th><td><?= $udaje["prijmeni"] ?></td><th>Město: </th><td><?= $udaje["mesto"] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                    <th>Firma: </th><td><?= $udaje["firma"] ?></td><th>PSČ: </th><td><?= $udaje["psc"] ?></td>
+                                                    </tr>
+                                                       <tr>
+                                                    <th>Telefon: </th><td><?= $udaje["telefon"] ?></td><th>Email: </th><td><?= $udaje["email"] ?></td>
+                                                    </tr>
+                                                      <tr>
+                                                    <th>Platba: </th><td><?= $udaje["platba"]  ?></td><th>Doprava: </th><td><?= $udaje["doprava"]  ?></td>
+                                                    </tr>
+                                                     <tr>
+                                                    <th>Poznámka: </th><td colspan="3"><?= $udaje["poznamka"]  ?></td>
+                                                    </tr>
+                                                   
+                                            
+</thead>
+</table> 
+
+<br> <h2>Objednávka</h2>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2">Položka</th>
+                                                    <th>Kvantita</th>
+                                                    <th>Cena za jednotku</th>
+                                                       <th>Sleva</th>
+                                                    <th colspan="2">Celkem</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                             <?php foreach ($objednavka as $zbozi) : ?>
+                                                    <tr>
+  <td> 
+    
+    <a href="http://chejn-krmiva.cz/zbozi/<?= str_replace(" ","-",$zbozi["url"])?>">
+      <img src="http://chejn-krmiva.cz/img/produkty/<?= $zbozi["obrazek"]?>" alt="<?= $zbozi["nazev"]?>" height="100px">
+    </a>
+
+  </td>
+  <td class="vert-align">
+    <a href="zbozi/<?= str_replace(" ","-",$zbozi["url"])?>"><?= $zbozi["nazev"]?></a>
+  </td>
+  <td class="vert-align">
+   <?= $zbozi["kusu"]?>
+  </td>
+ <td class="vert-align">
+    <?= number_format($zbozi['cena'], 2, ',', ' ') ?> Kč
+  </td>
+   <td class="vert-align">
+    <?= $zbozi['sleva']*100  ?> % 
+  </td>
+
+  <td class="vert-align">
+   <?= number_format($zbozi['cena']*$zbozi["kusu"]*(1-$zbozi['sleva']), 2, ',', ' ')?> Kč
+  
+    
+</tr>
+                                             
+                                             
+                                            <?php endforeach ?>
+                                            </tbody>
+                                            <tfoot>
+                                             <tr>
+                                                    <th colspan="5">Doprava</th>
+                                                    <th><?= number_format($cenaDopravy, 2, ',', ' '); ?> Kč</th>
+                                                </tr>
+                                                  <tr>
+                                                    <th colspan="5">Platba</th>
+                                                    <th><?= number_format($cenaPlatby, 2, ',', ' '); ?> Kč</th>      
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="5">Celkem</th>
+                                                    <th><?= number_format($udaje["celkem"], 2, ',', ' '); ?> Kč</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+
+                                </div>
+                                <!-- /.table-responsive -->
+                  </div><!-- /.table-responsive -->
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix">
+                <input type="hidden" id="id_objednavky" value="<?= $udaje["id_fakturace"]?>">
+                <table class="table">
+                <tr>
+                
+                
+               <td class="vert-align">
+                <a class="btn btn-sm btn-info btn-flat" id="zpracovavase">Zpracovává se</a>  
+                   <a class="btn btn-sm  btn-warning btn-flat" id="pripravujese">Připravuje se</a> 
+                  <a class="btn btn-sm  btn-success btn-flat" id="odeslana">Odeslána</a>    
+                 <a class="btn btn-sm  btn-danger btn-flat" id="storno">Stornovat</a>
+              </td>
+                    <!-- <td> <a class="btn btn-sm  btn-danger btn-flat" id="odstranit">Odstranit objednávku</a></td>-->
+                 
+                  <td class="vert-align"> <a href="objednavky" class="btn btn-sm btn-default btn-flat pull-right">Zpět</a>  </td>
+                </tr>
+                </table>
+                </div><!-- /.box-footer -->
+              </div>
+             </section>
+      </div>

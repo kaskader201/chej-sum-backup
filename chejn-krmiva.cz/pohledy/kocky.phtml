@@ -1,0 +1,92 @@
+<div class="col-sm-9">
+
+
+    <div class="row products">
+        <h1>Kočky</h1>
+        <?php foreach ($produkty as $zbozi) : ?>
+            <div class="col-md-4 col-sm-6">
+                <div class="product">
+                    <?php
+                    if ($zbozi['sleva'] != 0) {
+                        echo '
+                                <div class="ribbon detail sale">
+                                    <div class="theribbon">-' . ($zbozi['sleva'] * 100) . '%</div>
+                                    <div class="ribbon-background"></div>
+                                </div>   ';
+                    }
+
+                    if ($zbozi['new'] != 0) {
+                        echo '
+                               <div class="ribbon detail new">
+                                    <div class="theribbon">NOVÉ</div>
+                                    <div class="ribbon-background"></div>
+                                </div> ';
+                    }
+                    if ($zbozi["lepek"] != 1) {
+                        echo '
+                                <div class="ribbon lepek">
+                                    <div class="theribbon"><img src="img/bez_lepku.png"></div>
+                                    <div class="ribbon-background"></div>
+                                </div>   ';
+                    }
+
+                    ?>
+                    <a href="zbozi/<?= str_replace(" ", "-", $zbozi['url']) ?>"><h2><?= $zbozi['nazev'] ?></h2></a>
+                    <div class="image">
+                        <a href="zbozi/<?= str_replace(" ", "-", $zbozi['url']) ?>">
+
+                            <img class="img-index" src="img/produkty/<?= $zbozi['obrazek'] ?>"
+                                 alt="<?= $zbozi['nazev'] ?>">
+                        </a>
+                    </div>
+                    <!-- /.image -->
+                    <div class="text">
+                        <h3><a href="zbozi/<?= str_replace(" ", "-",
+                                $zbozi['url']) ?>"><?= htmlspecialchars_decode($zbozi['kratkyPopis']) ?></a></h3>
+                        <?php
+                        if ($zbozi["sleva"] != 0) {
+                            echo '
+                                        <p class="price"><del>' . number_format($zbozi["cena"], 2, ',',
+                                    ' ') . ' Kč</del>  &nbsp;&nbsp;' . number_format($zbozi["cena"] * (1 - $zbozi["sleva"]),
+                                    2, ',', ' ') . ' Kč</p>
+                                        ';
+                        } else {
+                            if ($zbozi["cena"] == 0) {
+                                echo '<p class="price">Na dotaz</p>';
+                            } else {
+                                echo '
+                                        <p class="price">' . number_format($zbozi["cena"], 2, ',', ' ') . ' Kč</p>
+                                        ';
+                            }
+                        }
+                        ?>
+                    </div>
+                    <!-- /.text -->
+                </div>
+                <!-- /.product -->
+            </div>
+        <?php endforeach ?>
+        <!-- /.col-md-4 -->
+    </div>
+    <div class="pages">
+
+        <!-- <p class="loadMore">
+             <a href="#" class="btn btn-template-main"><i class="fa fa-chevron-down"></i> Zobrazit Více</a>
+         </p> -->
+        <ul class="pagination">
+
+
+            <!-- strankovaní -->
+            <?php foreach ($strankovani as $stranka) : ?>
+                <li <?php if ($stranka["active"]) {
+                    echo 'class="active"';
+                } ?>>
+                    <a href="kocky?stranka=<?= $stranka["url"] ?>"><?= $stranka["cislo"] ?></a>
+                </li>
+            <?php endforeach ?>
+
+        </ul>
+    </div>
+    <!-- /.products -->
+
+ <!-- /.col-md-9 -->

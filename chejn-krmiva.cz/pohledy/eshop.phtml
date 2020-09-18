@@ -1,0 +1,91 @@
+  <div class="col-sm-9">
+                  
+                        <p class="text-primary lead page-header">„Co je dobré pro mého psa, je dobré i pro mě”</p>
+                        <p>Nebo naopak. Výběr surovin a způsob jejich zpracování u nás probíhá v takové kvalitě, že testování palatability (chutnosti) a somatických vlastností produktů značky CHEJN ověřují pracovníci firmy nejen na svých psech a kočkách, ale také vlastními smysly: naše krmiva svými vlastnostmi a kvalitou splňují požadavky na humánní potravu. Můžete se o tom přesvědčit nejen podle vzhledu a vůně. Suroviny přicházejí do našeho zařízení ke zpracování každý den čerstvé, bez předchozího opracování, výhradně od spolehlivých a certifikovaných českých dodavatelů masa i zeleniny. </p>
+                        <div class="row products">
+                          <?php foreach ($produkty as $zbozi) : ?>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="product">
+                              
+
+                               
+                                <!-- /.ribbon -->
+
+                                   <a href="zbozi/<?= str_replace(" ","-",$zbozi['url']) ?>">     <h2><?= $zbozi['nazev']?></h2> </a>
+                            
+                                    <div class="image">
+                                        <a href="zbozi/<?= str_replace(" ","-",$zbozi['url']) ?>">
+                                        
+                                            <img class="img-index" src="img/produkty/<?= $zbozi['obrazek'] ?>" alt="<?= $zbozi['nazev']?>" >
+                                        </a>
+                                    </div>
+                                                         <?php
+                                         if($zbozi["sleva"]!=0)
+                                         {  echo'
+                                <div class="ribbon sale">
+                                    <div class="theribbon">-'.($zbozi["sleva"]*100).'%</div>
+                                    <div class="ribbon-background"></div>
+                                </div>   '  ;
+                                 }
+                            
+                                         if($zbozi["new"]!=0)
+                                         {
+                                         echo '
+                               <div class="ribbon new">
+                                    <div class="theribbon">NOVÉ</div>
+                                    <div class="ribbon-background"></div>
+                                </div> '  ;
+                                 }
+                                       if($zbozi["lepek"]!=1)
+                                         {  echo'
+                                <div class="ribbon lepek">
+                                    <div class="theribbon"><img src="img/bez_lepku.png"></div>
+                                    <div class="ribbon-background"></div>
+                                </div>   '  ;
+                               }
+                                 
+                                ?>
+                                    <!-- /.image -->
+                                    <div class="text"><a href="zbozi/<?= str_replace(" ","-",$zbozi['url']) ?>">
+                                        <h3><?= htmlspecialchars_decode($zbozi['kratkyPopis'])?> </h3>         </a>
+                                                <?php
+                                           if($zbozi["sleva"]!=0)
+                                       {
+                                        echo'
+                                        <p class="price"><del>'.number_format($zbozi["cena"], 2, ',', ' ').' Kč</del>  &nbsp;&nbsp;'.number_format($zbozi["cena"]*(1-$zbozi["sleva"]), 2, ',', ' ').' Kč</p>
+                                        ';
+                                       }else if($zbozi["cena"]==0)
+                                       {
+                                       echo'<p class="price">Na dotaz</p>';
+                                      }else{
+                                        echo'
+                                        <p class="price">'.number_format($zbozi["cena"], 2, ',', ' ').' Kč</p>
+                                        ';
+                                        }
+                                        ?> 
+                                    </div>
+                                    <!-- /.text -->
+                                </div>
+                                <!-- /.product -->
+                            </div>
+                               <?php endforeach ?>
+                            <!-- /.col-md-4 -->
+                        </div>
+         <div class="pages">
+      
+                           <!-- <p class="loadMore">
+                                <a href="#" class="btn btn-template-main"><i class="fa fa-chevron-down"></i> Zobrazit Více</a>
+                            </p> -->
+                            <ul class="pagination">
+                                 
+                                  
+                                <!-- strankovaní -->
+                                <?php foreach ($strankovani as $stranka) : ?>
+                                <li <?php if($stranka["active"])echo'class="active"';?>>
+                                <a href="index?stranka=<?=$stranka["url"]?>"><?=$stranka["cislo"]?></a>
+                                </li>
+                                 <?php endforeach ?>
+                              
+                            </ul>
+                        </div>             
+                               <?= htmlspecialchars_decode($odeslano); ?>

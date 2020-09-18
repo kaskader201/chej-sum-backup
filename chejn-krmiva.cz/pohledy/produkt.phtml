@@ -1,0 +1,190 @@
+  <div class="col-md-9">
+
+                       
+                        <p class="goToDescription"><a href="#details" class="scroll-to text-uppercase">Přejít na detail produktu</a>
+                        </p>
+
+                        <div class="row" id="productMain">
+                                  
+                                 <h1><?= $nazev ?></h1>
+                            <div class="col-sm-6">
+                                <?php
+                                         if($sleva!=0)
+                                         {  echo'
+                                <div class="ribbon detail sale">
+                                    <div class="theribbon">-'.($sleva*100).'%</div>
+                                    <div class="ribbon-background"></div>
+                                </div>   '  ;
+                                 }
+                            
+                                         if($new!=0)
+                                         {
+                                         echo '
+                               <div class="ribbon detail new">
+                                    <div class="theribbon">NOVÉ</div>
+                                    <div class="ribbon-background"></div>
+                                </div> '  ;
+                                 }
+                                
+                                         if($lepek!=1)
+                                         {  echo'
+                                <div class="ribbon lepek">
+                                    <div class="theribbon"><img src="img/bez_lepku.png"></div>
+                                    <div class="ribbon-background"></div>
+                                </div>   '  ;
+                               }
+                                ?>
+                                <div id="mainImage">    <br>
+                                    <img src="img/produkty/<?=  $obrazek ?>" alt="<?= $nazev ?>" class="img-responsive image1">
+                                </div>
+                                      
+
+                               
+                                <!-- /.ribbon -->
+
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="box">
+
+                                    <form accept="text/html" enctype="multipart/form-data" id="addItemForm"  method="post">
+                                    
+                                   <!--     <div class="sizes">
+
+                                            <h3>Dostupné Velikosti</h3>
+
+                                            <label for="size_s">
+                                                <a href="#">S</a>
+                                                <input type="radio" id="size_s" name="size" value="s" class="size-input">
+                                            </label>
+                                            <label for="size_m">
+                                                <a href="#">M</a>
+                                                <input type="radio" id="size_m" name="size" value="m" class="size-input">
+                                            </label>
+                                            <label for="size_l">
+                                                <a href="#">L</a>
+                                                <input type="radio" id="size_l" name="size" value="l" class="size-input">
+                                            </label>
+                                            <label for="size_xl">
+                                                <a href="">XL</a>
+                                                <input type="radio" id="size_xl" name="size" value="xl" class="size-input">
+                                            </label>
+                                            <label for="size_xxl">
+                                                <a href="">XXL</a>
+                                                <input type="radio" id="size_xxl" name="size" value="xxl" class="size-input">
+                                            </label>
+                                        </div>     -->
+                        
+                                              <?php
+                                           if($sleva!=0)
+                                       {
+                                        echo'
+                                        <p class="price"><small><del>'.number_format($cena, 2, ',', ' ').' Kč</del></small><br /><span id="cena">'.number_format($cena*(1-$sleva), 2, ',', ' ').'</span> Kč</p>
+                                        ';
+                                       }else if($cena==0)
+                                       {
+                                       echo'<p class="price">Na dotaz</p>';
+                                      }else{
+                                        echo'
+                                        <p class="price"><span id="cena">'.number_format($cena, 2, ',', ' ').'</span> Kč</p>
+                                        ';
+                                        }
+                                        ?>
+                                        
+                       
+                                                 
+                                        <p class="text-center">
+                                        <input type="hidden" name="id_zbozi" id="id_zbozi" value="<?= $id_produktu ?>">
+                                        
+                                                  <input type=button value='-' onclick='javascript:process(-1)' class='qtyminus'>
+                                                  <input type=text size=10 id="kusu" name='v' value='<?= $vbaleni ?>' class='qty'>
+                                                  <input type=button value='+' onclick='javascript:process(1)'  class='qtyplus' > <br><br>
+
+
+                                            <a href="" type="submit" data-toggle="modal" data-target="#cart-modal"  id="submit"><button class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Přidat do košíku</button></a>                             
+                                                <br>
+                                                   <h4 class="text-center">Dostupnost produktu: <?php echo htmlspecialchars_decode($dostupnost); ?></h4>
+                                          <!-- <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart-o"></i>     </button> -->
+                                        
+                                        </p>
+
+                                    </form>
+                                </div>
+
+                                <div class="row" id="thumbs">
+                                    <div class="col-xs-4">
+                                        <a href="img/produkty/<?= $obrazek?>" class="thumb">
+                                            <img src="img/produkty/<?=  $obrazek?>" alt="<?= $nazev?>" class="img-responsive image1">
+                                        </a>
+                                    </div>                                              
+                   
+                            </div>
+
+                        </div>
+
+                       
+                        <div class="box" id="details">
+                            <p>
+                                <h2>Detail produktu</h2>
+                                <?= $_dlouhyPopis?>
+                          
+                            
+                            </p>
+                          
+                               <strong>Složení: </strong> 
+                                <?= $_slozeni?>   <br>
+                              <strong>Hmotnost:</strong>
+                              <?= $hmotnost?> g
+                            
+                            </p>
+                            <p>
+                                     <?= $_neobsahuje ?>
+                            </p>
+                            <h2>Doporučené dávkování:</h2> 
+                            
+                               <?= $_davkovani ?>
+                           
+                                <p> <i>
+                                             <?= $_upozorneni ?>
+                              </i></p>
+                                               <br>
+                                <p><?= $_info ?> </p>
+                              
+                        </div>
+                              
+                        
+
+                           <div class="modal fade" id="cart-modal" tabindex="-1" role="dialog" aria-labelledby="Cart" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+
+                <div class="modal-content">
+                    <div class="modal-body">
+                        Váš předmět byl přidán do košíku.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script language=javascript>
+function process(v){
+    var value = parseInt(document.getElementById('kusu').value);
+    var nasobic =parseInt("<?= $vbaleni ?>");
+    var limit =parseInt("<?= $limit ?>");
+    value+=(v*nasobic);
+     var cenaB="<?= number_format($cena2, 2, ',', ' '); ?>";
+     var cenaA="<?= number_format($cena, 2, ',', ' '); ?>";
+     
+    if(value<1)
+    {
+    value=nasobic;
+    }
+    if(value>=limit)
+    {
+              
+    document.getElementById('cena').innerHTML =cenaB;
+    }else{
+    
+     document.getElementById('cena').innerHTML =cenaA ;
+    }
+   
+    document.getElementById('kusu').value = value;
+}
+</script>

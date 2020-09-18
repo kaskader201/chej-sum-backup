@@ -1,0 +1,211 @@
+/* your styles go here */
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+
+    vertical-align: middle !important;
+}
+
+.panel.panel-default.sidebar-menu.col-md-10 {
+    border-right-color: #6aae7a;
+    border-right-style: solid;
+}
+
+.img-index {
+    max-height: 180px;
+}
+
+.img-reklama {
+    max-height: 150px;
+}
+
+@media (min-width: 1300px) {
+    h2 {
+        font-size: 22px !important;
+    }
+
+    .container {
+        width: 1310px !important;
+    }
+
+    .navbar-nav > li > a {
+        font-size: 14px !important;
+    }
+
+    .img-index {
+        height: auto;
+        max-width: 150px;
+        width: auto;
+    }
+}
+
+@media (min-width: 1200px and max-width:1299px) {
+    h2 {
+        font-size: 22px !important;
+    }
+
+    .container {
+        width: 1200px !important;
+    }
+
+    .navbar-nav > li > a {
+        font-size: 18px !important;
+    }
+
+    .img-index {
+        height: 140px;
+    }
+
+    .image > img {
+        height: 200px !important;
+    }
+}
+
+@media (min-width: 992px and max-width: 1199px) {
+    .container {
+        width: 1000px;
+    }
+
+    .navbar-nav > li > a {
+        font-size: 13px !important;
+    }
+
+    h2 {
+        font-size: 15px !important;
+    }
+
+    .img-index {
+        height: 180px;
+    }
+}
+
+@media (min-width: 768px) {
+    .col-sm-3 {
+
+        padding-right: 8px;
+    }
+
+}
+@media (max-width: 768px) {
+    .product{
+        height: 450px;
+    }
+
+}
+#mask {
+    position: absolute;
+    left: -420px;
+    top: 0;
+    z-index: 9000;
+    background-color: #000;
+    display: none;
+    width: 180% !important;
+    height: 100% !important;
+
+}
+
+#boxes .window {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 440px;
+    height: 200px;
+    display: none;
+    z-index: 9999;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#boxes #dialog {
+    width: 400px;
+    height: 210px;
+    padding: 10px;
+
+    background-color: #ffffff;
+    font-family: 'Segoe UI Light', sans-serif;
+
+}
+
+#dialog p {
+    text-align: center;
+    line-height: 35px;
+    font-size: 20px;
+}
+
+#dialog a {
+    font-size: 35px;
+}
+
+#popupfoot {
+    font-size: 16px;
+    position: absolute;
+    bottom: 0;
+
+    left: 155px;
+    margin-bottom: 20px;
+}
+
+#popupfoot a {
+    color: black !important;
+    opacity: 0.5 !important;
+}
+
+.qty {
+    width: 40px;
+    height: 25px;
+    text-align: center;
+}
+
+input.qtyplus {
+    width: 25px;
+    height: 25px;
+}
+
+input.qtyminus {
+    width: 25px;
+    height: 25px;
+}
+
+#mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9000;
+    background-color: #000;
+    display: none;
+}
+
+#boxes .window {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 440px;
+    height: 200px;
+    display: none;
+    z-index: 9999;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#boxes #dialog {
+    width: 750px;
+    height: 300px;
+    padding: 10px;
+    background-color: #ffffff;
+    font-family: 'Segoe UI Light', sans-serif;
+
+}
+
+#dialog p {
+    line-height: 35px;
+    font-size: 20px;
+}
+
+#popupfoot {
+    font-size: 16pt;
+    position: absolute;
+    bottom: 0px;
+    width: 250px;
+    left: 250px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,382 @@
+<?php
+$zobraz = false;
+if(isset($_SESSION['zobrazenoP']) && $_SESSION['zobrazenoP'] == true){
+$zobraz = false;
+
+}
+
+
+?>
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+<base href="https://www.chejn-krmiva.cz/" />
+    <meta charset="utf-8">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title><?= $titulek ?></title>
+
+    <meta name="keywords" content="<?= $klicova_slova ?>">
+    <meta name="author" content="David Jelínek">
+    <meta name="description" content="<?php print_r($popis); ?>">
+    <meta name="robots" content="all,follow">
+       <style type="text/css">
+          .pokracovat {
+              /* margin-left: -199px; */
+              position: relative;
+              left: -233px;
+          }
+       </style>
+    
+
+  
+     
+    <!-- Bootstrap and Font Awesome css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+         <!--[if lt IE 11]>
+                  <link href="css/customIE.css" rel="stylesheet">
+    <![endif]-->
+    <!-- Css animations  -->
+    <link href="css/animate.css" rel="stylesheet">
+
+    <!-- Theme stylesheet, if possible do not edit this stylesheet -->
+    <link href="css/style.green.css?version=1.1" rel="stylesheet" id="theme-stylesheet">
+
+    <!-- Custom stylesheet - for your changes -->
+    <link href="css/custom.css?version=1.2" rel="stylesheet">
+        
+
+    <!-- Responsivity for older IE -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+            <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51231708-10', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+
+<body>
+    <div id="all">
+
+        <header>
+
+            <!-- *** TOP *** -->
+            <div id="top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="social">
+                            <!--    <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+                          --> </div>
+                            <div class="login">
+                               <!-- <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Přihlásit se</span></a>
+                                <a href="customer-register.php"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Registrovat se</span></a>
+                               --> 
+                                <a href="kosik"><i class="fa fa-shopping-cart"></i><span class="hiden-xs text-uppercase">Košík (<span id="pocetKosik"><?= $kosik ?></span>)</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- *** TOP END *** -->
+
+            <!-- *** NAVBAR ***  -->
+
+            <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+
+                <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+
+                    <div class="container">
+                        <div class="navbar-header">
+
+                            <a class="navbar-brand home" href="eshop">
+                                <img src="img/logo.png" alt="Chejn logo" class="hidden-xs hidden-sm">
+                                <img src="img/logo-small.png" alt="Chejn logo" class="visible-xs visible-sm"><span class="sr-only">Hlavní Strana</span>
+                            </a>
+                            <div class="navbar-buttons">
+                                <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                                    <span class="sr-only">Zobrazit Navigaci</span>
+                                    <i class="fa fa-align-justify"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!--/.navbar-header -->
+
+                        <div class="navbar-collapse collapse" id="navigation">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="https://www.chejn-krmiva.cz/firma/index.php">Hlavní strana</a></li>
+                                <li><a href="https://www.chejn-krmiva.cz/firma/sortiment.php">Sortiment</a></li>
+                                <li><a href="https://www.chejn-krmiva.cz/firma/oproduktech.php">O produktech</a></li>
+                                <li><a href="https://www.chejn-krmiva.cz/firma/onas.php">O nás</a></li>
+                                <li class="active"><a href="/">E-Shop ČR</a></li>
+                                <li><a href="https://www.chejn-krmiva.cz/firma/jakkrmit.php">Jak krmit</a></li>
+                                <li><a href="https://www.chejn-krmiva.cz/firma/faq.php">FAQ</a></li>
+                                <li><a href="https://www.chejn-krmiva.cz/firma/kontakt.php">Kontakty</a></li>
+                            </ul>
+                        </div>
+                        <!--/.nav-collapse -->
+                        <div class="collapse clearfix" id="search">
+                            <form class="navbar-form" role="search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </div>
+                </div>
+                <!-- /#navbar -->
+            </div>
+            <!-- *** NAVBAR END *** -->
+        </header>
+
+        <!-- *** LOGIN MODAL *** -->
+ 
+        <!-- *** LOGIN MODAL END *** -->
+
+        <div id="heading-breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        
+                    </div>
+                    <div class="col-md-5">
+                        <ul class="breadcrumb">
+                          <!-- <li><a href="index">E-shop<?= $cesta ?></a></li>    -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="content">
+            <div class="container">
+            <?php if($eshop==false){ ?>
+                <div class="row">
+                    <!-- *** LEFT COLUMN *** -->
+                    <div class="col-sm-3">
+                     <br> 
+                        <!-- *** MENUS AND FILTERS *** -->
+                        <div class="panel panel-default sidebar-menu col-md-10">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><a href="/zbozi">Kategorie</a></h3>
+                            </div>
+                            <div class="panel-body">
+                                 <ul class="nav nav-pills nav-stacked category-menu">
+                                       <?php if($aktualni_sekce=="psi")echo'<li class="active">';else echo '<li>';?>
+                                        <a href="/psi">Psi <span class="badge pull-right"><?= $pocet_psi ?></span></a>
+                                    </li>
+                                  <?php if($aktualni_sekce=="kocky")echo'<li class="active">';else echo '<li>';?>                                     
+                                        <a href="/kocky">Kočky  <span class="badge pull-right"><?= $pocet_kocky ?></span></a>
+                                    </li>
+                                                                     </li>
+                                  <?php if($aktualni_sekce=="velkoobchod")echo'<li class="active">';else echo '<li>';?>                                     
+                                        <a href="/velkoobchod">Velkoobchodní odběr</a>
+                                    </li>
+                                </ul>
+                            </div>      
+                                <!-- Mohlo by se líbit-->
+                                  <div class="panel-heading">
+                                <h3 class="panel-title">Novinky</h3>
+                            </div>
+                            <div class="panel-body">
+                            <h4>SALÁMKY 1 KG = NOVÝ VZHLED, NOVÁ RECEPTURA  </h4>
+
+                              <p>
+                              Přinášíme tradiční, oblíbené salámky CHEJN v nových obalech a s vylepšenou recepturou - NOVĚ jsou všechny BEZLEPKOVÉ!
+                              
+                              MASOVÉ SALÁMKY CHEJN  – pro psy 1000g     </p>
+                              <ul>
+                              <li>S kuřecím  a dýní</li>
+                              <li>S droby a červenou řepou</li>
+                              <li>KOMPLET – se zeleninou</li>
+                              <li>NOVINKA – s jehněčím a mrkví</li>
+                                </ul>
+                              <p>Vše najdete v našem aktuálně v našem e-shopu!
+                          </p>
+                            </div>
+                            <br><br>
+                            <!-- Mohlo by se líbit-->
+                                  <div class="panel-heading">
+                                <h3 class="panel-title">Doporučujeme</h3>
+                            </div>
+                            <div class="panel-body">
+                            <a href="https://chejn-krmiva.cz/zbozi/Micka-premium-kureci">
+                            <h4 class="text-center">MICKA PREMIUM s kuřecím</h4>
+                                <img class="img-reklama center-block img-responsive" src="https://chejn-krmiva.cz/img/produkty/MICKA_KURECI_web.jpg" class="image-responsible" alt="mohlo by se libit">
+                                <p>Masová konzerva pro kočky – jemné kuřecí a lahodný losos Vaší kočce zachutná</p>
+                                </a>
+                            </div>
+                            
+                            <br><br>
+                            <!-- reklama-->
+                                  <div class="panel-heading">
+                                <h3 class="panel-title">Reklama</h3>
+                            </div>
+                            <div class="panel-body">
+                            <a href="https://www.altercan.com/vyziva-hlodavci/Alfavet-RodiCare-Instant.html">
+                            <h4 class="text-center">RodiCare Instant</h4>
+                                <img class="img-reklama center-block img-responsive" src="https://www.altercan.com/fotky/detail/RodiInstant_web-20090126.jpg"  alt="reklama">
+                                <br><p>Samostatné krmivo pro domácí zvířata a králíky</p>
+                                </a>
+                            </div>   <br>
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Osobní odběr</h3>
+                            </div>
+                             <div class="panel-body">
+                                <p>Zboží je možné zakoupit také v maloobchodní prodejně na adrese společnosti:<br> Josef Chejn, spol. s r.o., Křenice 42. <br>Platba v prodejně výhradně hotově. <br><b>Otevírací doba obchodu:</b><br> Po-Čt 7:00-16:00<br> Pátek 7:00-12:00<br></p>
+                          </div>     <br>
+                               <!--    <div class="panel-heading">
+                                <h3 class="panel-title">
+PALETOVÝ ODBĚR</h3>
+                            </div>
+                           <div class="panel-body">
+                                <p>Zboží je možné odebírat také po paletách, kdy na základě poptávky dostanete individuální ceník.  Podmínkou je jednorázový odběr celé palety zboží a platba předem, převodem na účet, výhodou pak<strong><u> atraktivní cena včetně přepravy do Vámi určeného místa</u></strong> v rámci celé ČR a samozřejmě garantovaná trvanlivost zboží a nenáročné skladování.<br><hr><a href="data/VOP_Chejn.pdf" target="_blank">Obchodní podmínky</a></p>
+                          </div>   -->
+                        </div>
+                        <!-- *** MENUS AND FILTERS END *** -->
+                        
+                        <!-- /.banner -->
+                    </div>
+                    <!-- /.col-md-3 -->
+                    <?php }?>
+
+
+		
+
+			<?php $this->kontroler->vypisPohled(); // vložení aktuálního pohledu do šablony ?>
+
+
+		            </div> </div>
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#content -->
+        <footer id="footer">
+            <div class="container">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                 <h4>Společnost Josef Chejn, spol. s r. o.</h4>
+                <address>
+                   
+                    <p>Výrobce krmiv pro zvířata v zájmových chovech.<br>
+                        IČ: 27105776 | DIČ: CZ27105776 <br>
+                        Telefon/Fax: 323 603 863</p>
+                        </address>
+                   
+                   
+                </div>
+                <div class="col-md-4"></div>
+                <!-- /.col-md-3 -->
+            </div>
+            <!-- /.container -->
+        </footer>
+        <!-- /#footer -->
+        <div id="copyright">
+            <div class="container">
+                <div class="col-md-12">
+                    <p class="pull-left">&copy; 2003 - 2016 &#124; Josef Chejn, spol. s.r.o. &#124; Všechna práva vyhrazena &#124; <a href="data/VOP_Chejn.pdf" target="_blank">Obchodní podmínky</a></p>
+                    <p class="pull-right">E-shop vytvořil <a href="#">David Jelínek</a>.</p>
+                </div>
+            </div>
+        </div>
+        <!-- /#copyright -->
+    </div>
+<div class="modal fade" id="pf" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md-12" style="margin-top:50px;">
+
+        <div class="modal-content">
+            <div class="row products">
+                <h2 style="text-align: center; margin-left: 10px; margin-top: 20px;"><strong>PF 2020</strong> </h2>
+                <div class=""><img src="../img/pf2020.png"
+                                     alt="pf2020" class="img-responsive" style="width: 90%; margin: 0 auto;">  
+                                     <div style="margin-left: 3em;">
+                         <strong>Kamenná prodejna:  </strong><br>
+
+ 
+
+<strong>Prosincová otevírací doba:</strong>   <ul><li>do 20.12.2019 do 12:00</li>
+
+                                             <li>30.12.2019 8:00-16:00</li>
+
+                                             <li>31.12.2019 8:00-12:00</li>
+                                             </ul>
+ <strong>Lednová otevírací doba:</strong> od 6.1.2020 – běžný provoz <br>
+
+ 
+
+<strong>E-shop:</strong><br>
+zásilky vyřizujeme a odesíláme: do 19.12.2019 <br>
+od 6.1.2020 – běžný provoz        <br>
+             </div>   </div>
+                <img src="../img/pf2020_01.png"
+                                     alt="pf2020_01" class="img-responsive" style="width: 90%; margin: 0 auto;">  
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success pokracovat" data-dismiss="modal">Pokračovat na web
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    <!-- /#all -->
+    <!-- #### JAVASCRIPT FILES ### -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')
+
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/jquery.parallax-1.1.3.js"></script>
+    <script src="js/front.js"></script>
+
+       <script src="js/ajax.js"></script>
+       <?php 
+    if($zobraz){  
+    $_SESSION['zobrazenoP'] = true;       
+echo '
+   <script>
+ $(document).ready(function () {
+
+    $(\'#pf\').modal(\'show\');
+
+});  
+
+    </script>
+
+';
+              }
+       
+
+       ?>
+       
+    
+     
+
+</body>
+
+</html>

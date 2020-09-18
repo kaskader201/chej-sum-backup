@@ -1,0 +1,260 @@
+ <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Úprava produktu
+            <small>Verze 1.0 - Ořezaná</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Hlavní Strana</a></li>
+            <li class="active">Uprava produktu</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+          <!-- Main row -->
+          <div class="row">
+            <!-- Left col -->
+            <div class="col-md-12">
+              <!-- TABLE: LATEST ORDERS -->
+              <div class="box box-info">
+                <div class="box-body">
+                   <div class="box-header with-border">
+                  <h3 class="box-title">Produkt:  <?= $udaje["nazev"] ?></h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div><!-- /.box-header -->
+                  <div class="table-responsive">
+                           <?= $text ?>     
+                  <form method="post" action="/EditProduktu/ulozit" enctype="multipart/form-data">
+                  <input type="hidden" name="id" value="<?= $udaje["id"] ?>">
+                  
+                    <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>Název</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><input type="input" class="form-control" value="<?= $udaje["nazev"] ?>" name="nazev"></textarea></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>Krátký popis</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><textarea rows="2" cols="50" class="form-control" name="kratkyPopis"><?= $udaje["kratkyPopis"] ?></textarea></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>Dlouhý popis</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><textarea rows="5" cols="50" class="form-control" name="dlouhyPopis"><?= $udaje["dlouhyPopis"] ?></textarea></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>Složení</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><textarea rows="2" cols="50" class="form-control" name="slozeni"><?= $udaje["slozeni"] ?></textarea></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                      <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>Neobsahuje</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>  
+                          <td> <textarea rows="6" cols="50" class="form-control" name="neobsahuje"><?= htmlspecialchars_decode($udaje["neobsahuje"]); ?></textarea></td>  
+                         
+                        </tr>
+                      </tbody>
+                    </table>
+                     <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>Dávkování</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>  
+                          <td> <textarea rows="10" cols="50" class="form-control" name="davkovani"><?= htmlspecialchars_decode($udaje["davkovani"]); ?></textarea></td>  
+                         
+                        </tr>
+                      </tbody>
+                    </table>
+                    
+                       <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>Upozornění</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>  
+                          <td> <textarea rows="6" cols="50" class="form-control" name="upozorneni"><?= htmlspecialchars_decode($udaje["upozorneni"]); ?></textarea></td>  
+                         
+                        </tr>
+                      </tbody>
+                    </table>
+                      <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>Informace uplně dole</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>  
+                          <td> <textarea rows="6" cols="50" class="form-control" name="info"><?= htmlspecialchars_decode($udaje["info"]); ?></textarea></td>  
+                         
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>Hmotnost <span class="text-muted">(g)</span></th>
+                          <th>Cena <span class="text-muted">(Kč)</span></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><input type="text" class="form-control" value="<?= $udaje["hmotnost"] ?>"name="hmostnost"></td>
+                          <td><input type="text" class="form-control" value="<?= $udaje["cena"] ?>" name="cena"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                     <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>Cena při vetším odběru <span class="text-muted">(Kč)</span></th>
+                          <th>Kusů v balení <span class="text-muted">(Ks)</span></th>
+                          <th>Min kusů pro nižší cenu <span class="text-muted">(Ks)</span></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><input type="text" class="form-control" value="<?= $udaje["cena2"] ?>"name="cena2"></td>
+                           <td><input type="text" class="form-control" value="<?= $udaje["vbaleni"] ?>"name="vbaleni"></td>
+                          <td><input type="text" class="form-control" value="<?= $udaje["limit"] ?>" name="limit"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>Obrázek</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><input type="text" class="form-control" value="<?= $udaje["obrazek"] ?>" name="obrazek"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                           <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>URL</th>
+                          <th>Skladem <span class="text-muted">(Kusů)</span></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><input type="text" class="form-control" value="<?= $udaje["url"] ?>" name="url"></td>
+                          <td><input type="text" class="form-control" value="<?= $udaje["skladem"] ?>" name="skladem"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                           <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>Novinka  <span class="text-muted">(1 = Ano, 0 = Ne)</span></th>
+                          <th>Sleva <span class="text-muted">(0 - 1, např. 0.22)</span></th>
+                              <th>Lepek <span class="text-muted">(1 = Obsahuje, 0 = Neobsahuje)</span></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><input type="text" class="form-control" value="<?= $udaje["new"] ?>" name="new"></td>
+                          <td><input type="text" class="form-control" value="<?= $udaje["sleva"] ?>" name="sleva"></td>
+                            <td><input type="text" class="form-control" value="<?= $udaje["lepek"] ?>" name="lepek"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                                    <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>Kategorie</th>
+                       
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><select name="category" class="form-control">
+                          <?php foreach ($kategorie as $item) :   ?>
+                               <option value="<?=$item["category_id"]?>"
+                          <?php if($patri[0]==$item["category_id"]){echo " selected";} ?>> <?=$item["title"]?></option>
+                                                    
+                         
+                        
+                           <?php endforeach ?>   
+                          
+                          </select></td>
+                       
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="table no-margin">
+                      <tbody>
+                        <tr>
+                          <hr>
+                          <button class="btn btn-info btn-block" type="submit">Uložit</button>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </form>
+                    <form method="post" action="/EditProduktu/odstranit" enctype="multipart/form-data">
+                     <input type="hidden" name="id" value="<?= $udaje["id"] ?>">
+                       <table class="table no-margin">
+                      <tbody>
+                        <tr>
+                          <hr>
+                          <button class="btn btn-danger btn-block" type="submit">Odstranit</button>
+                        </tr>
+                      </tbody>
+                    </table>
+                   </form>
+       
+                  </div><!-- /.table-responsive -->
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->              
+          </div><!-- /.row -->
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PC Setup - Vengeance Admin 1.0 - LITE</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/AVengeance.min.css">
+
+    <link rel="stylesheet" href="dist/css/skins/skin-blue.css">
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+
+      <!-- Main Header -->
+      <header class="main-header">
+
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini"><b>A</b>VG</span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg"><b>Admin</b> Vengeance</span>
+        </a>
+
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Přepnout Navigaci</span>
+          </a>
+          <!-- Navbar Right Menu -->
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- User Account Menu -->
+              <li class="dropdown user user-menu">
+                <!-- Menu Toggle Button -->
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <!-- The user image in the navbar-->
+                  <img src="dist/img/avatar.png" class="user-image" alt="User Image">
+                  <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                  <span class="hidden-xs">Jméno Přijmení</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- The user image in the menu -->
+                  <li class="user-header">
+                    <img src="dist/img/avatar.png" class="img-circle" alt="User Image">
+                    <p>
+                      Jméno Přijmení
+                      <small>Členem od: 22.12.2015</small>
+                    </p>
+                  </li>
+                  <!-- Menu Body -->
+                  <li class="user-body">
+                    <div class="col-xs-6 text-center">
+                      <a href="#">Objednávky</a>
+                    </div>
+                    <div class="col-xs-6 text-center">
+                      <a href="#">Nové Produkty</a>
+                    </div>
+                  </li>
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-right">
+                      <a href="#" class="btn btn-default btn-flat">Odhlásit se</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+          <!-- Sidebar user panel (optional) -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="dist/img/avatar.png" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+              <p>Jméno Přijmení</p>
+              <!-- Status -->
+              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+          </div>
+
+          <!-- search form (Optional) -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="q" class="form-control" placeholder="Hledat...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form>
+          <!-- /.search form -->
+
+          <!-- Sidebar Menu -->
+          <ul class="sidebar-menu">
+            <li class="header">Nastavení</li>
+            <!-- Optionally, you can add icons to the links -->
+            <li class="active"><a href="index.html"><i class="fa fa-link"></i> <span>Hlavní Strana</span></a></li>
+            <li><a href="#"><i class="fa fa-link"></i> <span>Produkty</span></a></li>
+          </ul><!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Přehled
+            <small>Verze 1.0 - Ořezaná</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Hlavní Strana</a></li>
+            <li class="active">Přehled</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <!-- Info boxes -->
+          <div class="row">
+            <div class="col-md-4 col-sm-8 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">FB LIKE</span>
+                  <span class="info-box-number">41,410</span>
+                </div><!-- /.info-box-content -->
+              </div><!-- /.info-box -->
+            </div><!-- /.col -->
+
+            <!-- fix for small devices only -->
+            <div class="clearfix visible-sm-block"></div>
+
+            <div class="col-md-4 col-sm-8 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Prodaných produktů</span>
+                  <span class="info-box-number">760</span>
+                </div><!-- /.info-box-content -->
+              </div><!-- /.info-box -->
+            </div><!-- /.col -->
+            <div class="col-md-4 col-sm-8 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Počet uživatelů</span>
+                  <span class="info-box-number">2,000</span>
+                </div><!-- /.info-box-content -->
+              </div><!-- /.info-box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+          <!-- Main row -->
+          <div class="row">
+            <!-- Left col -->
+            <div class="col-md-8">
+              <!-- MAP & BOX PANE -->
+
+              <!-- TABLE: LATEST ORDERS -->
+              <div class="box box-info">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Poslední Objednávky</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <div class="table-responsive">
+                    <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>Číslo Objednávky</th>
+                          <th>Faktura</th>
+                          <th>Stav</th>
+                          <th>Info</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><a href="pages/examples/invoice.html">OBJ012569</a></td>
+                          <td><a href="">FA012569</a></td>
+                          <td><span class="label label-success">Odesláno</span></td>
+                          <td>Nějaký text jde sem. Popis zákazníka</td>
+                        </tr>
+                        <tr>
+                          <td><a href="pages/examples/invoice.html">OBJ012570</a></td>
+                          <td><a href="">FA012570</a></td>
+                          <td><span class="label label-warning">Čeká</span></td>
+                          <td>Nějaký text jde sem. Popis zákazníka</td>
+                        </tr>
+                        <tr>
+                          <td><a href="pages/examples/invoice.html">OBJ012571</a></td>
+                          <td><a href="">FA012571</a></td>
+                          <td><span class="label label-danger">Doručeno</span></td>
+                          <td>Nějaký text jde sem. Popis zákazníka</td>
+                        </tr>
+                        <tr>
+                          <td><a href="pages/examples/invoice.html">OBJ012572</a></td>
+                          <td><a href="">FA012572</a></td>
+                          <td><span class="label label-info">Připravuje se</span></td>
+                          <td>Nějaký text jde sem. Popis zákazníka</td>
+                        </tr>
+                        <tr>
+                          <td><a href="pages/examples/invoice.html">OBJ012573</a></td>
+                          <td><a href="">FA012573</a></td>
+                          <td><span class="label label-warning">Čeká</span></td>
+                          <td>Nějaký text jde sem. Popis zákazníka</td>
+                        </tr>
+                        <tr>
+                          <td><a href="pages/examples/invoice.html">OBJ012574</a></td>
+                          <td><a href="">FA012574</a></td>
+                          <td><span class="label label-danger">Doručeno</span></td>
+                          <td>Nějaký text jde sem. Popis zákazníka</td>
+                        </tr>
+                        <tr>
+                          <td><a href="">OBJ012575</a></td>
+                          <td><a href="">FA012575</a></td>
+                          <td><span class="label label-success">Odesláno</span></td>
+                          <td>Nějaký text jde sem. Popis zákazníka</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div><!-- /.table-responsive -->
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix">
+                  <a href="javascript::;" class="btn btn-sm btn-info btn-flat pull-left">Spravovat objednávku</a>
+                  <a href="javascript::;" class="btn btn-sm btn-default btn-flat pull-right">Zobrazit vše</a>
+                </div><!-- /.box-footer -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+
+            <div class="col-md-4">
+              <!-- Info Boxes Style 2 -->
+              <div class="info-box bg-yellow">
+                <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Sklad</span>
+                  <span class="info-box-number">5,200</span>
+                  <div class="progress">
+                    <div class="progress-bar" style="width: 50%"></div>
+                  </div>
+                  <span class="progress-description">
+                    50% Nárůst za 30 Dní
+                  </span>
+                </div><!-- /.info-box-content -->
+              </div><!-- /.info-box -->
+              <div class="info-box bg-green">
+                <span class="info-box-icon"><i class="ion ion-ios-heart-outline"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Počet Položek</span>
+                  <span class="info-box-number">92,050</span>
+                  <div class="progress">
+                    <div class="progress-bar" style="width: 20%"></div>
+                  </div>
+                  <span class="progress-description">
+                    20% Nárůst za 30 Dní
+                  </span>
+                </div><!-- /.info-box-content -->
+              </div><!-- /.info-box -->
+              <div class="info-box bg-red">
+                <span class="info-box-icon"><i class="ion ion-ios-cloud-download-outline"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Počet objednávek</span>
+                  <span class="info-box-number">114,381</span>
+                  <div class="progress">
+                    <div class="progress-bar" style="width: 70%"></div>
+                  </div>
+                  <span class="progress-description">
+                    70% Nárůst za 30 Dní
+                  </span>
+                </div><!-- /.info-box-content -->
+              </div><!-- /.info-box -->
+              <div class="info-box bg-aqua">
+                <span class="info-box-icon"><i class="ion-ios-chatbubble-outline"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Odeslané objednávky</span>
+                  <span class="info-box-number">163,921</span>
+                  <div class="progress">
+                    <div class="progress-bar" style="width: 40%"></div>
+                  </div>
+                  <span class="progress-description">
+                    40% Nárůst za 30 Dní
+                  </span>
+                </div><!-- /.info-box-content -->
+              </div><!-- /.info-box -->
+
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+
+      <!-- Main Footer -->
+      <footer class="main-footer">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+          Verze 1.0 Lite
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2015 - 2016 <a href="http://pcsetup.cz">PC SETUP</a>.</strong> All rights reserved.
+      </footer>
+
+        <!-- Add the sidebar's background. This div must be placed
+           immediately after the control sidebar -->
+      <div class="control-sidebar-bg"></div>
+    </div><!-- ./wrapper -->
+
+    <!-- REQUIRED JS SCRIPTS -->
+
+    <!-- jQuery 2.1.4 -->
+    <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+        <!-- FastClick -->
+    <script src="plugins/fastclick/fastclick.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/app.min.js"></script>
+    <!-- SlimScroll 1.3.0 -->
+    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- ChartJS 1.0.1 -->
+    <script src="plugins/chartjs/Chart.min.js"></script>
+  </body>
+</html>

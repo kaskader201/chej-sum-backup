@@ -1,0 +1,94 @@
+   <div class="col-md-9" id="checkout">
+<div class="box">
+  <h1>Košík</h1>
+<form method="post" action="/kosik/platba">
+<div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Položka</th>
+                                                    <th>Název</th>
+                                                    <th>Kvantita</th>
+                                                    <th>Cena za jednotku</th>                                                    
+                                                    <th>Celkem</th>
+                                                    <th>Odstranit</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                             <?php foreach ($kosik as $zbozi) : ?>
+                                           
+                                                  <?php 
+                                                  $cena=0;
+                                                      if($zbozi["kusu"]/$zbozi["limit"]>=1)
+                                                      {
+                                                     $cena = $zbozi['cena2'];
+                                                      } else
+                                                      {
+                                                         $cena=$zbozi['cena'];
+                                                      }
+                                                      
+                                                      ?>
+                                             
+                                      
+                                                    <tr>
+  <td> 
+    
+    <a href="zbozi/<?= str_replace(" ","-",$zbozi["url"])?>">
+    
+      <img src="img/produkty/<?= $zbozi["obrazek"]?>" alt="<?= $zbozi["nazev"]?>" class="img-responsive">
+    </a>
+
+  </td>
+  <td>
+    <a href="zbozi/<?= str_replace(" ","-",$zbozi["url"])?>"><?= $zbozi["nazev"]?></a>
+  </td>
+  <td>
+   <?= $zbozi["kusu"]?>
+  </td>
+  <td>
+        <?= number_format($cena*(1-$zbozi['sleva']), 2, ',', ' ') ?>
+    Kč
+  </td>
+   <td>
+     
+ 
+ <?=  number_format($cena*$zbozi["kusu"]*(1-$zbozi['sleva']), 2, ',', ' ') ?> Kč
+  </td>
+  <td>
+    <a href="ajax/deleteItem.php?id=<?= $zbozi["id"]?>">
+    <i class="fa fa-trash-o"></i>
+    </a>
+  </td>
+</tr>
+                         <?php $celkemStalo+= $cena*$zbozi["kusu"]*(1-$zbozi['sleva']);  ?>                    
+                                             
+                                            <?php endforeach ?>
+                                            </tbody>
+                                          
+                                            <tfoot>
+                                                <tr>    <hr />
+                                                    <th colspan="5">Celkem</th>
+                                                    <th><?= number_format($celkemStalo, 2, ',', ' ') ?> Kč</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+
+                                </div>
+                                <!-- /.table-responsive -->
+                                        <br>         
+                                <div class="box-footer">
+                                    <div class="pull-left">
+                                        <a href="/" class="btn btn-default"><i class="fa fa-chevron-left"></i> Pokračovat v nákupu</a>
+                                    </div>
+                                    <div class="pull-right">
+                                      <!--  <button class="btn btn-default"><i class="fa fa-refresh"></i> Obnovit košík</button>  -->
+                                        <button type="submit" class="btn btn-template-main">Pokračovat k platbě <i class="fa fa-chevron-right"></i>
+                                        </button>
+                                        
+                                    </div>
+                                </div><br>
+                               
+
+                            </form>
+                            
+                        </div> 

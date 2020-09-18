@@ -1,0 +1,123 @@
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Přehled objednávek
+            <small>Verze 1.0 - Ořezaná</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Hlavní Strana</a></li>
+            <li class="active">Přehled</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <!-- Info boxes -->
+          <div class="row">
+            <div class="col-md-4 col-sm-8 col-xs-12">
+              <div class="info-box">
+               <span class="info-box-icon bg-blue"><i class="fa fa-facebook"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">FB LIKE</span>
+                  <span class="info-box-number">41,410</span>
+                </div><!-- /.info-box-content -->
+              </div><!-- /.info-box -->
+            </div><!-- /.col -->
+
+            <!-- fix for small devices only -->
+            <div class="clearfix visible-sm-block"></div>
+
+            <div class="col-md-4 col-sm-8 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Celkový počet objednávek</span>
+                  <span class="info-box-number"><?= $prodano[0] ?></span>
+                </div><!-- /.info-box-content -->
+              </div><!-- /.info-box -->
+            </div><!-- /.col -->
+            <div class="col-md-4 col-sm-8 col-xs-12">
+              <div class="info-box">
+<span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span> 
+                <div class="info-box-content">
+                  <span class="info-box-text">Počet uživatelů</span>
+                  <span class="info-box-number">2,000</span>
+                </div><!-- /.info-box-content -->
+              </div><!-- /.info-box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+          <!-- Main row -->
+          <div class="row">
+            <!-- Left col -->
+            <div class="col-md-12">
+              <!-- MAP & BOX PANE -->
+
+              <!-- TABLE: LATEST ORDERS -->
+              <div class="box box-info">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Přehled objednávek</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <div class="table-responsive">
+                    <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>Jmeno</th>
+                          <th>Příjmení</th>
+                          <th>Firma</th>
+                          <th>Ulice</th>
+                          <th>Město</th>
+                          <th>PSČ</th>
+                          <th>Telefon</th>
+                          <th>Email</th>
+                          <th>Doprava</th>
+                         <th>Platba</th>
+                          <th>Celkem</th>
+                            <th>Datum</th>
+                              <th>Stav</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                                      <?php 
+                                      
+                                      foreach ($objednavky as $objednavka) : ?>
+                                      
+                      <tr> 
+                          <td class="vert-align"><?= $objednavka["jmeno"]?></td>
+                          <td class="vert-align"><?= $objednavka["prijmeni"]?> </td>
+                          <td class="vert-align"><?= $objednavka["firma"]?> </td>
+                          <td class="vert-align"><?= $objednavka["ulice"]?> </td>
+                          <td class="vert-align"><?= $objednavka["mesto"]?> </td>
+                          <td class="vert-align"><?= $objednavka["psc"]?> </td>
+                          <td class="vert-align"><?= $objednavka["telefon"]?> </td>
+                          <td class="vert-align"><?= $objednavka["email"]?> </td>
+                          <td class="vert-align"><?= $objednavka["doprava"]?> </td>
+                          <td class="vert-align"><?= $objednavka["platba"]?> </td>                          
+                          <td class="vert-align"><?= number_format($objednavka["celkem"], 2, ',', ' ')?> Kč</td>
+                          <td class="vert-align"><?= $objednavka["datum"]?> </td>
+                          <td class="vert-align"><?= htmlspecialchars_decode($objednavka["stav"]);?> </td>
+                        
+                          <td class="vert-align"><a href="objednavka/<?= $objednavka["id"]?>" class="btn btn-sm btn-info btn-flat"><i class="fa fa-search"></i></a></td>  
+                     </tr> 
+                         <?php endforeach ?>                
+                        
+                  
+                      </tbody>
+                    </table>
+                  </div><!-- /.table-responsive -->
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix">
+                    
+                </div><!-- /.box-footer -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->

@@ -1,0 +1,3 @@
+Uzivatel: , ID Zbozi: , Počet: , Datum a čas: 03:00:13 01.01.2017
+Uzivatel: 729ae68d7a042e881494f905f27511b2f36a90d0015cb32db552b30b1fe1d3ba6a5b584f04dd4cfd04fb3939a1fbb9301277b94371565a42cdc4b3331484b174, ID Zbozi: 6, Počet: 10, Datum a čas: 22:56:05 01.01.2017
+
